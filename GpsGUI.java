@@ -636,7 +636,7 @@ public class GpsGUI {
                         bufferDistance0.setText(inputDistance0.getText());
                         inputDistance0.selectAll();
                         inputDistance0.replaceSelection(
-                                "Distance travelled by Tracker0: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker0: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[0] = ev.latitude;
@@ -691,7 +691,7 @@ public class GpsGUI {
                         bufferDistance1.setText(inputDistance1.getText());
                         inputDistance1.selectAll();
                         inputDistance1.replaceSelection(
-                                "Distance travelled by Tracker1: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker1: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[1] = ev.latitude;
@@ -745,7 +745,7 @@ public class GpsGUI {
                         bufferDistance2.setText(inputDistance2.getText());
                         inputDistance2.selectAll();
                         inputDistance2.replaceSelection(
-                                "Distance travelled by Tracker2: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker2: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[2] = ev.latitude;
@@ -799,7 +799,7 @@ public class GpsGUI {
                         bufferDistance3.setText(inputDistance3.getText());
                         inputDistance3.selectAll();
                         inputDistance3.replaceSelection(
-                                "Distance travelled by Tracker3: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker3: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[3] = ev.latitude;
@@ -854,7 +854,7 @@ public class GpsGUI {
                         bufferDistance4.setText(inputDistance4.getText());
                         inputDistance4.selectAll();
                         inputDistance4.replaceSelection(
-                                "Distance travelled by Tracker4: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker4: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[4] = ev.latitude;
@@ -908,7 +908,7 @@ public class GpsGUI {
                         bufferDistance5.setText(inputDistance5.getText());
                         inputDistance5.selectAll();
                         inputDistance5.replaceSelection(
-                                "Distance travelled by Tracker5: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker5: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[5] = ev.latitude;
@@ -963,7 +963,7 @@ public class GpsGUI {
                         bufferDistance6.setText(inputDistance6.getText());
                         inputDistance6.selectAll();
                         inputDistance6.replaceSelection(
-                                "Distance travelled by Tracker6: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker6: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[6] = ev.latitude;
@@ -1018,7 +1018,7 @@ public class GpsGUI {
                         bufferDistance7.setText(inputDistance7.getText());
                         inputDistance7.selectAll();
                         inputDistance7.replaceSelection(
-                                "Distance travelled by Tracker7: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker7: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[7] = ev.latitude;
@@ -1073,7 +1073,7 @@ public class GpsGUI {
                         bufferDistance8.setText(inputDistance8.getText());
                         inputDistance8.selectAll();
                         inputDistance8.replaceSelection(
-                                "Distance travelled by Tracker8: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker8: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[8] = ev.latitude;
@@ -1129,7 +1129,7 @@ public class GpsGUI {
                         bufferDistance9.setText(inputDistance9.getText());
                         inputDistance9.selectAll();
                         inputDistance9.replaceSelection(
-                                "Distance travelled by Tracker9: " + String.valueOf(intDistance) + "m");
+                                "Distance travelled by Tracker9: " + String.valueOf(Math.ceil(intDistance)) + "m");
 
                         // Add data to a map for processing
                         latitudes[9] = ev.latitude;
