@@ -135,9 +135,7 @@ public class GpsGUI {
         SLabel label7filt = new SLabel(text7);
         SLabel label8filt = new SLabel(text8);
         SLabel label9filt = new SLabel(text9);
-
-
-  
+        filtration.add(label0filt);
         filtration.add(label1filt);
         filtration.add(label2filt);
         filtration.add(label3filt);
