@@ -117,7 +117,7 @@ public class GpsGUI {
 
         frame.pack();
 
-        frame.setSize(1200, 720);
+        frame.setSize(1300, 720);
         frame.setVisible(true);
 
         /*--------------------------------- */
@@ -631,6 +631,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[0] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance0.setText(inputDistance0.getText());
@@ -686,6 +687,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[1] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance1.setText(inputDistance1.getText());
@@ -740,6 +742,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[2] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance2.setText(inputDistance2.getText());
@@ -794,6 +797,8 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[3] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance3.setText(inputDistance3.getText());
@@ -849,6 +854,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[4] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance4.setText(inputDistance4.getText());
@@ -903,6 +909,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[5] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance5.setText(inputDistance5.getText());
@@ -958,6 +965,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[6] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance6.setText(inputDistance6.getText());
@@ -1013,6 +1021,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[7] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance7.setText(inputDistance7.getText());
@@ -1068,6 +1077,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[8] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance8.setText(inputDistance8.getText());
@@ -1124,6 +1134,7 @@ public class GpsGUI {
                             }
                         }
                         distTravelled[9] = tempDistTravelled;
+                        tempDistTravelled = Math.ceil(tempDistTravelled);
                         int intDistance = (int) tempDistTravelled;
 
                         bufferDistance9.setText(inputDistance9.getText());
