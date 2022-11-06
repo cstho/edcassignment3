@@ -2,7 +2,12 @@ import nz.sodium.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.FlowLayout;
+import java.text.SimpleDateFormat;  
+import java.util.Date;  
+
 import swidgets.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /** 
  * An example of how to use the GpsService class
@@ -13,11 +18,9 @@ public class GpsGUI {
 
         JFrame frame = new JFrame("GPS GUI");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
 
-
-
-        // Trackers
+        /*--------------------------------- */
+        /* Trackers (part 1) */
         STextField input0 = new STextField("");
         STextField buffer0 = new STextField("");
         Cell<String> text0 = input0.sUserChanges.hold(buffer0.getText()); //Hold buffer value so value doesnt disappear
@@ -37,7 +40,7 @@ public class GpsGUI {
 
         STextField input3 = new STextField("");
         STextField buffer3 = new STextField("");
-        Cell<String> text3 = input3.sUserChanges.hold(buffer3.getText()); //Hold buffer value so value doesnt disappear
+        Cell<String> text3 = input3.sUserChanges.hold(buffer3 .getText()); //Hold buffer value so value doesnt disappear
         SLabel label3 = new SLabel(text3);
         frame.add(label3);
 
@@ -77,6 +80,31 @@ public class GpsGUI {
         SLabel label9 = new SLabel(text9);
         frame.add(label9);
 
+        /*--------------------------------- */
+
+        /* 4 Comma delimited string (Part 2)*/
+        STextField inputTimestamp = new STextField("");
+        STextField bufferTimestamp = new STextField("");
+        Cell<String> textTimestamp = inputTimestamp.sUserChanges.hold(bufferTimestamp.getText());
+        SLabel labelTimestamp = new SLabel(textTimestamp);
+        frame.add(labelTimestamp);
+
+        /*--------------------------------- */
+        /* Timer handling - clear after 3 seconds of nothing */
+        int delay = 3000; //milliseconds
+            ActionListener taskPerformer = new ActionListener() {
+                public void actionPerformed(ActionEvent evt) {
+                    //...Perform a task...
+                    bufferTimestamp.setText(inputTimestamp.getText()); //set buffer to normal timestamp
+                    inputTimestamp.selectAll();
+                    inputTimestamp.replaceSelection(""); //auto clear after 3 seconds 
+                }
+            };
+        Timer timer = new Timer(delay, taskPerformer);
+        timer.setRepeats(false);
+
+
+        /*--------------------------------- */
 
 
         // Initialise the GPS Service
@@ -90,17 +118,37 @@ public class GpsGUI {
             s.listen((GpsEvent ev) -> {
                 System.out.println(ev);
                 if (ev.name.equals("Tracker0")) {
+
+                    //Replace tracker component
                     buffer0.setText(input0.getText());
                     input0.selectAll();
                     input0.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
 
-                
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
+
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
+
                 }
 
                 if (ev.name.equals("Tracker1")) {
                     buffer1.setText(input1.getText());
                     input1.selectAll();
                     input1.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+
+
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
+
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
 
                 
                 }
@@ -109,14 +157,29 @@ public class GpsGUI {
                     buffer2.setText(input2.getText());
                     input2.selectAll();
                     input2.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
 
-                
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
+
                 }
 
                 if (ev.name.equals("Tracker3")) {
                     buffer3.setText(input3.getText());
                     input3.selectAll();
                     input3.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
+
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
 
                 
                 }
@@ -125,6 +188,14 @@ public class GpsGUI {
                     buffer4.setText(input4.getText());
                     input4.selectAll();
                     input4.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
+
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
 
                 
                 }
@@ -133,6 +204,14 @@ public class GpsGUI {
                     buffer5.setText(input5.getText());
                     input5.selectAll();
                     input5.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
+
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
 
                 
                 }
@@ -141,7 +220,14 @@ public class GpsGUI {
                     buffer6.setText(input6.getText());
                     input6.selectAll();
                     input6.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
 
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
                 
                 }
 
@@ -149,24 +235,42 @@ public class GpsGUI {
                     buffer7.setText(input7.getText());
                     input7.selectAll();
                     input7.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
 
-                
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
                 }
 
                 if (ev.name.equals("Tracker8")) {
                     buffer8.setText(input8.getText());
                     input8.selectAll();
                     input8.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
 
-                
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
                 }
 
                 if (ev.name.equals("Tracker9")) {
                     buffer9.setText(input9.getText());
                     input9.selectAll();
                     input9.replaceSelection(ev.name + " Latitude: " + ev.latitude +  " Longitude: " + ev. longitude);
+                    //Replace date component
+                    bufferTimestamp.setText(inputTimestamp.getText());
+                    inputTimestamp.selectAll();
+                    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");  
+                    Date date = new Date();
 
-                
+                    inputTimestamp.replaceSelection(ev.name + ", " + ev.latitude + ", " + ev.longitude + ", " + formatter.format(date).toString() );
+                    timer.restart();
                 }
             });
 
