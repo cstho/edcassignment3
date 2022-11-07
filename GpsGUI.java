@@ -77,6 +77,15 @@ public class GpsGUI {
         Vector<RolledWindowStamp> rollingWindow8 = new Vector<RolledWindowStamp>();
         Vector<RolledWindowStamp> rollingWindow9 = new Vector<RolledWindowStamp>();
 
+        // Altitude to Meter Conversion - Map
+        STextField alt = new STextField("");
+        Cell<String> textAlt = alt.sUserChanges.map(t -> {
+            Double temp = Double.valueOf(t) * 0.3048;
+            String out = String.valueOf(temp);
+            return out;
+        }).hold("");
+        SLabel altInMeters = new SLabel(textAlt);
+
         /* JFrame tweaking */
 
         JFrame frame = new JFrame("GPS GUI");
@@ -596,6 +605,7 @@ public class GpsGUI {
             s.listen((GpsEvent ev) -> {
                 System.out.println(ev);
                 if (ev.name.equals("Tracker0")) {
+
                     // Replace date component
                     bufferTimestamp.setText(inputTimestamp.getText());
                     inputTimestamp.selectAll();
@@ -613,8 +623,20 @@ public class GpsGUI {
                     if (fitsCriteria[0] == true) {
 
                         if (altitudes[0] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[0]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[0], ev.latitude, longitudes[0], ev.longitude,
-                                    altitudes[0] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[0] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -669,8 +691,20 @@ public class GpsGUI {
                     finput1.replaceSelection(ev.name + " Latitude: " + ev.latitude + " Longitude: " + ev.longitude);
                     if (fitsCriteria[1] == true) {
                         if (altitudes[1] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[1]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[1], ev.latitude, longitudes[1], ev.longitude,
-                                    altitudes[1] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[1] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -724,8 +758,20 @@ public class GpsGUI {
                     timer.restart();
                     if (fitsCriteria[2] == true) {
                         if (altitudes[2] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[2]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[2], ev.latitude, longitudes[2], ev.longitude,
-                                    altitudes[2] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[2] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -779,8 +825,20 @@ public class GpsGUI {
                     timer.restart();
                     if (fitsCriteria[3] == true) {
                         if (altitudes[3] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[3]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[3], ev.latitude, longitudes[3], ev.longitude,
-                                    altitudes[3] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[3] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -836,8 +894,20 @@ public class GpsGUI {
                     timer.restart();
                     if (fitsCriteria[4] == true) {
                         if (altitudes[4] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[4]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[4], ev.latitude, longitudes[4], ev.longitude,
-                                    altitudes[4] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[4] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -891,8 +961,20 @@ public class GpsGUI {
                     timer.restart();
                     if (fitsCriteria[5] == true) {
                         if (altitudes[5] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[5]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[5], ev.latitude, longitudes[5], ev.longitude,
-                                    altitudes[5] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[5] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -947,8 +1029,20 @@ public class GpsGUI {
                     timer.restart();
                     if (fitsCriteria[6] == true) {
                         if (altitudes[6] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[6]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[6], ev.latitude, longitudes[6], ev.longitude,
-                                    altitudes[6] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[6] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -1003,8 +1097,20 @@ public class GpsGUI {
                     timer.restart();
                     if (fitsCriteria[7] == true) {
                         if (altitudes[7] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[7]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[7], ev.latitude, longitudes[7], ev.longitude,
-                                    altitudes[7] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[7] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -1059,8 +1165,20 @@ public class GpsGUI {
                     if (fitsCriteria[8] == true) {
 
                         if (altitudes[8] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[8]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[8], ev.latitude, longitudes[8], ev.longitude,
-                                    altitudes[8] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[8] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
@@ -1116,8 +1234,20 @@ public class GpsGUI {
                     if (fitsCriteria[9] == true) {
 
                         if (altitudes[9] != -1385.0) {
+                            // altitude conversion
+                            double alt1, alt2;
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(altitudes[9]));
+
+                            alt1 = Double.valueOf(altInMeters.getText());
+
+                            alt.selectAll();
+                            alt.replaceSelection(String.valueOf(ev.altitude));
+
+                            alt2 = Double.valueOf(altInMeters.getText());
+
                             double updatedDistance = distance(latitudes[9], ev.latitude, longitudes[9], ev.longitude,
-                                    altitudes[9] * 0.3048, ev.altitude * 0.3048);
+                                    alt1, alt2);
                             distTravelled[9] += updatedDistance;
 
                             RolledWindowStamp rolled = new RolledWindowStamp(
